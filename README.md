@@ -16,7 +16,7 @@ scikit-learn<br>
 2 CNN卷积神经网络
 =
 模型CNN配置的参数在text_model.py中，具体为：<br><br>
-![image](https://github.com/cjymz886/text-cnn/blob/master/images/text_cnn_config.png)<br>
+![image](https://github.com/cjymz886/text-cnn/blob/master/images/text_cnn_config.png)<br><br>
 模型CNN大致结构为：<br><br>
 ![image](https://github.com/cjymz886/text-cnn/blob/master/images/text_cnn.png)
 
