@@ -30,7 +30,7 @@ cnews.val.txt: 验证集(500*10)<br>
 
 cnews.test.txt: 测试集(1000*10)<br><br>
 
-训练所用的数据，以及训练好的词向量可以下载：链接: https://pan.baidu.com/s/1hugrfRu 密码: qfud<br><br>
+训练所用的数据，以及训练好的词向量可以下载：链接: [https://pan.baidu.com/s/1gka7SgYIRijSaXgRfYZzwA ]，密码: mmbk<br><br>
 
 
 
