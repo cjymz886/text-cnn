@@ -18,6 +18,14 @@ scikit-learn<br>
 
 3 数据集
 =
+本实验同样是使用THUCNews的一个子集进行训练与测试，数据集请自行到[THUCTC：一个高效的中文文本分类工具包](http://thuctc.thunlp.org/)下载，请遵循数据提供方的开源协议;<br><br>
+文本类别涉及10个类别：categories = \['体育', '财经', '房产', '家居', '教育', '科技', '时尚', '时政', '游戏', '娱乐'],每个分类6500条数据；<br><br>
+cnews.train.txt: 训练集(5000*10)<br>
+cnews.val.txt: 验证集(500*10)<br>
+cnews.test.txt: 测试集(1000*10)<br><br>
+
+
+
 
 4 预处理
 =
@@ -28,9 +36,9 @@ scikit-learn<br>
 
 5 运行步骤
 =
-python train_word2vec.py,对训练数据进行分词，利用Word2vec训练词向量(vector_word.txt)<br><br>
+python train_word2vec.py，对训练数据进行分词，利用Word2vec训练词向量(vector_word.txt)<br><br>
 python text_train.py，进行训练模型<br><br>
-python text_test.py,对模型进行测试<br><br>
+python text_test.py，对模型进行测试<br><br>
 python text_predict.py，提供模型的预测<br><br>
 
 
