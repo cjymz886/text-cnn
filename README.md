@@ -33,8 +33,8 @@ scikit-learn<br>
 
 8 预测结果
 =
-运行:python text_predict.py <br>
-随机从测试数据中挑选了五个样本，输出原文本和它的原文本标签和预测的标签，下图中5个样本预测的都是对的；<br>
+运行:python text_predict.py <br><br>
+随机从测试数据中挑选了五个样本，输出原文本和它的原文本标签和预测的标签，下图中5个样本预测的都是对的；<br><br>
 ![image](https://github.com/cjymz886/text-cnn/blob/master/images/text_cnn_predict.png)
 
 
