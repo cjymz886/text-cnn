@@ -30,6 +30,9 @@ scikit-learn<br>
 
 7 测试结果
 =
+运行：python text_test.py<br><br>
+对测试数据集显示，test_loss=0.13，test_accuracy=96.7%，其中“体育”类测试为100%，整体的precision=recall=F1=97%<br><br>
+![image](https://github.com/cjymz886/text-cnn/blob/master/images/text_cnn_test.png)
 
 8 预测结果
 =
