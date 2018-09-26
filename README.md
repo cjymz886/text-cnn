@@ -6,7 +6,7 @@
 1 环境
 =
 python3<br>
-tensorflow 1.3以上<br>
+tensorflow 1.3以上CPU环境下<br>
 gensim<br>
 jieba<br>
 scipy<br>
