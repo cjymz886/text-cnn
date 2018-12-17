@@ -37,7 +37,7 @@ class TextCNN(object):
         self.config=config
 
         self.input_x=tf.placeholder(tf.int32,shape=[None,self.config.seq_length],name='input_x')
-        self.input_y=tf.placeholder(tf.float32,shape=[None,self.config.num_classes],name='input_x')
+        self.input_y=tf.placeholder(tf.float32,shape=[None,self.config.num_classes],name='input_y')
         self.keep_prob=tf.placeholder(tf.float32,name='dropout')
         self.global_step = tf.Variable(0, trainable=False, name='global_step')
 
