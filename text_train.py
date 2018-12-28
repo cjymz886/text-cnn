@@ -10,6 +10,23 @@ from datetime import timedelta
 
 
 
+
+def evaluate(sess, x_, y_):
+    data_len = len(x_)
+    batch_eval = batch_iter(x_, y_, 128)
+    total_loss = 0.0
+    total_acc = 0.0
+    for x_batch, y_batch in batch_eval:
+        batch_len = len(x_batch)
+        feed_dict = feed_data(x_batch, y_batch, 1.0)
+        loss, acc = sess.run([model.loss, model.acc], feed_dict=feed_dict)
+        total_loss += loss * batch_len
+        total_acc += acc * batch_len
+
+    return total_loss / data_len, total_acc / data_len
+
+
+
 def feed_data(x_batch, y_batch, keep_prob):
     feed_dict = {
         model.input_x: x_batch,
@@ -61,10 +78,9 @@ def train():
                                                                                     model.acc], feed_dict=feed_dict)
             if global_step % config.print_per_batch == 0:
                 end = time.time()
-                feed_dict = feed_data(x_val, y_val, 1.0)
-                val_summaries, val_loss, val_accuracy = session.run([merged_summary, model.loss, model.acc],
-                                                                 feed_dict=feed_dict)
-                writer.add_summary(val_summaries, global_step)
+                val_loss, val_accuracy = evaluate(session, x_val, y_val)
+                writer.add_summary(train_summaries, global_step)
+
                 # If improved, save the model
                 if val_accuracy > best_val_accuracy:
                     saver.save(session, save_path)

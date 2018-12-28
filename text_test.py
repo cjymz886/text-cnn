@@ -8,6 +8,29 @@ import os
 import time
 from datetime import timedelta
 
+
+def evaluate(sess, x_, y_):
+    data_len = len(x_)
+    batch_eval = batch_iter(x_, y_, 128)
+    total_loss = 0.0
+    total_acc = 0.0
+    for x_batch, y_batch in batch_eval:
+        batch_len = len(x_batch)
+        feed_dict = feed_data(x_batch, y_batch, 1.0)
+        loss, acc = sess.run([model.loss, model.acc], feed_dict=feed_dict)
+        total_loss += loss * batch_len
+        total_acc += acc * batch_len
+
+    return total_loss / data_len, total_acc / data_len
+
+def feed_data(x_batch, y_batch, keep_prob):
+    feed_dict = {
+        model.input_x: x_batch,
+        model.input_y: y_batch,
+        model.keep_prob:keep_prob
+    }
+    return feed_dict
+
 def test():
     print("Loading test data...")
     t1=time.time()
@@ -19,12 +42,7 @@ def test():
     saver.restore(sess=session,save_path=save_path)
 
     print('Testing...')
-    feed_dict = {
-        model.input_x: x_test,
-        model.input_y: y_test,
-        model.keep_prob:1
-        }
-    test_loss,test_accuracy = session.run([model.loss, model.acc],feed_dict=feed_dict)
+    test_loss,test_accuracy = evaluate(session,x_test,y_test)
     msg = 'Test Loss: {0:>6.2}, Test Acc: {1:>7.2%}'
     print(msg.format(test_loss, test_accuracy))
 
