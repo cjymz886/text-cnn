@@ -1,6 +1,11 @@
 # Text classification with CNN and Word2vec
 本文是参考gaussic大牛的“text-classification-cnn-rnn”后，基于同样的数据集，嵌入词级别所做的CNN文本分类实验结果，gaussic大牛是基于字符级的；<br><br>
-本实验的主要目是为了探究基于Word2vec训练的词向量嵌入CNN后，对模型的影响，实验结果得到的模型在验证集达到96.5%的效果，gaussic大牛为94.12%；<br><br>
+进行了第二版的更新：1.加入不同的卷积核；2.加入正则化；3.词仅为中文或英文，删掉文本中数字、符号等类型的词；4.词的长度限制2以上，删除长度为1的词；<br>
+训练结果较第一版有所提升，验证集准确率从96.5%达到97.1%，测试准备率从96.7%达到97.2%。<br>
+<br>
+
+
+本实验的主要目是为了探究基于Word2vec训练的词向量嵌入CNN后，对模型的影响，实验结果得到的模型在验证集达到97.1%的效果，gaussic大牛为94.12%；<br><br>
 更多详细可以阅读gaussic大牛的博客：[text-classification-cnn-rnn](https://github.com/gaussic/text-classification-cnn-rnn)<br><br>
 
 1 环境
@@ -38,7 +43,7 @@ cnews.test.txt: 测试集(1000*10)<br><br>
 4 预处理
 =
 本实验主要对训练文本进行分词处理，一来要分词训练词向量，二来输入模型的以词向量的形式；<br><br>
-另外，除掉文本的标点符号，但没有停用词的处理;<br><br>
+另外，词仅为中文或英文，词的长度大于1;<br><br>
 处理的程序都放在loader.py文件中；<br><br>
 
 
@@ -53,13 +58,13 @@ python text_predict.py，提供模型的预测<br><br>
 6 训练结果
 =
 运行：python text_train.py<br><br>
-本实验经过6轮的迭代，满足终止条件结束，在global_step=3200时在验证集得到最佳效果96.5%<br><br>
+本实验经过6轮的迭代，满足终止条件结束，在global_step=2000时在验证集得到最佳效果97.1%<br><br>
 ![image](https://github.com/cjymz886/text-cnn/blob/master/images/text_cnn_train.png)
 
 7 测试结果
 =
 运行：python text_test.py<br><br>
-对测试数据集显示，test_loss=0.13，test_accuracy=96.7%，其中“体育”类测试为100%，整体的precision=recall=F1=97%<br><br>
+对测试数据集显示，test_loss=0.1，test_accuracy=97.23%，其中“体育”类测试为100%，整体的precision=recall=F1=97%<br><br>
 ![image](https://github.com/cjymz886/text-cnn/blob/master/images/text_cnn_test.png)
 
 8 预测结果
