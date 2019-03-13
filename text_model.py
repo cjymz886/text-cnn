@@ -88,6 +88,7 @@ class TextCNN(object):
                                    initializer=tf.contrib.layers.xavier_initializer())
             fc_b = tf.Variable(tf.constant(0.1, shape=[self.config.num_classes]), name='fc_b')
             self.logits = tf.matmul(self.final_output, fc_w) + fc_b
+            self.prob=tf.nn.softmax(self.logits)
             self.y_pred_cls = tf.argmax(self.logits, 1, name='predictions')
 
         with tf.name_scope('loss'):
