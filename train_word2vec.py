@@ -9,7 +9,7 @@ from gensim.models import word2vec
 from text_model import TextConfig
 
 
-re_han= re.compile(u"([\u4E00-\u9FD5a-zA-Z0-9+#&\._%]+)") # the method of cutting text by punctuation
+re_han= re.compile(u"([\u4E00-\u9FD5a-zA-Z]+)") # the method of cutting text by punctuation
 
 class Get_Sentences(object):
     '''
