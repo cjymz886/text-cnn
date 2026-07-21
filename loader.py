@@ -43,7 +43,7 @@ def build_vocab(filenames,vocab_dir,vocab_size=8000):
         vocab_dir:path of vocab_filename
         vocab_size:number of vocabulary
     Returns:
-        writting vocab to vocab_filename
+        writing vocab to vocab_filename
 
     """
     all_data = []
